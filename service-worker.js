@@ -4,9 +4,9 @@ const cacheName = 'cache-v1';
 const precacheResources = [
   '/',
   '/skinclinic/',
-  './index.html',
-  './css/style.css',
-  './js/controller.js',
+  '/skinclinic/index.html',
+  'skinclinic/css/style.css',
+  'skinclinic/js/controller.js',
 ];
 
 // When the service worker is installing, open the cache and add the precache resources to it
