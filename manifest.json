@@ -1,0 +1,22 @@
+{
+  "name": "Skin Clinic v1",
+  "short_name": "Skin Clinic",
+  "start_url": "/skinclinic/",
+  "display": "standalone",
+  "scope": "/",
+  "background_color": "red",
+  "description": "Inventory app for Skin Clinic",
+  "icons": [
+    {
+      "src": "./img/icon48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/icon198.png",
+      "sizes": "198x198",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "red"
+}
