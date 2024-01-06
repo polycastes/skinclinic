@@ -25,4 +25,6 @@ if ('serviceWorker' in navigator) {
       console.log('😥 Service worker registration failed: ', err);
     }
   });
+} else {
+  console.log('service worker not supported');
 }

@@ -1,22 +1,22 @@
 {
   "name": "Skin Clinic v1",
   "short_name": "Skin Clinic",
-  "start_url": "/skinclinic/",
+  "start_url": ".",
   "scope": "https://polycastes.github.io/skinclinic/",
   "display": "standalone",
-  "background_color": "red",
+  "background_color": "#ff0000",
   "description": "Inventory app for Skin Clinic",
   "icons": [
     {
-      "src": "./img/icon48.png",
+      "src": "./img/logo48.png",
       "sizes": "48x48",
       "type": "image/png"
     },
     {
-      "src": "./img/icon198.png",
+      "src": "./img/logo198.png",
       "sizes": "198x198",
       "type": "image/png"
     }
   ],
-  "theme_color": "red"
+  "theme_color": "#ff0000"
 }
