@@ -3,6 +3,7 @@ const cacheName = 'cache-v1';
 // List the files to precache
 const precacheResources = [
   '/',
+  '/skinclinic/',
   './index.html',
   './css/style.css',
   './js/controller.js',
