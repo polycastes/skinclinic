@@ -2,6 +2,7 @@
   "name": "Skin Clinic v1",
   "short_name": "Skin Clinic",
   "start_url": "/skinclinic/",
+  "scope": "https://example.com/subdirectory/",
   "display": "standalone",
   "background_color": "red",
   "description": "Inventory app for Skin Clinic",
