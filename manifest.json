@@ -3,7 +3,7 @@
   "short_name": "Skin Clinic",
   "start_url": "/skinclinic/",
   "display": "standalone",
-  "scope": "/",
+  // "scope": "/",
   "background_color": "red",
   "description": "Inventory app for Skin Clinic",
   "icons": [
