@@ -11,7 +11,7 @@ if ('serviceWorker' in navigator) {
       if (import.meta.env?.DEV) {
         reg = await navigator.serviceWorker.register('./../service-worker.js', {
           type: 'module',
-          scope: '/skinclinic/',
+          scope: './',
         });
       } else {
         // In production, use the normal service worker registration
