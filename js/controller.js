@@ -15,9 +15,7 @@ if ('serviceWorker' in navigator) {
         });
       } else {
         // In production, use the normal service worker registration
-        reg = await navigator.serviceWorker.register('./../service-worker.js', {
-          scope: './',
-        });
+        reg = await navigator.serviceWorker.register('./../service-worker.js');
       }
 
       console.log('Service worker registered! 😎', reg);

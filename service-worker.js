@@ -6,6 +6,7 @@ const precacheResources = [
   './index.html',
   './css/style.css',
   './js/controller.js',
+  './img/logo198.png',
 ];
 
 // When the service worker is installing, open the cache and add the precache resources to it
