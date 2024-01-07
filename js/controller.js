@@ -9,13 +9,21 @@ if ('serviceWorker' in navigator) {
 
       // Use ES Module version of our Service Worker in development
       if (import.meta.env?.DEV) {
-        reg = await navigator.serviceWorker.register('./../service-worker.js', {
-          type: 'module',
-          scope: './',
-        });
+        reg = await navigator.serviceWorker.register(
+          '/skinclinic/service-worker.js',
+          {
+            type: 'module',
+            scope: '/skinclinic/',
+          }
+        );
       } else {
         // In production, use the normal service worker registration
-        reg = await navigator.serviceWorker.register('./../service-worker.js');
+        reg = await navigator.serviceWorker.register(
+          '/skinclinic/service-worker.js',
+          {
+            scope: '/skinclinic/',
+          }
+        );
       }
 
       console.log('Service worker registered! 😎', reg);
