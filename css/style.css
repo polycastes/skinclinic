@@ -79,6 +79,45 @@ body {
   margin-left: auto;
 }
 
+.aside {
+  position: fixed;
+  right: 0;
+  top: 8rem; /* equal to header height*/
+  height: calc(100% - 8rem);
+  z-index: 2;
+  background-color: #ece4db;
+  padding: 2rem;
+  transform: translateX(100%);
+  transition: transform 1s ease-in-out;
+}
+
+.aside-open {
+  transform: translateX(0);
+}
+
+.aside-nav {
+  height: 100%;
+}
+
+.aside-ul {
+  height: 100%;
+
+  /* flex */
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.aside-li {
+  text-decoration: none;
+  list-style-type: none;
+  font-size: 2rem;
+}
+
+.aside-li:nth-last-child(2) {
+  margin-top: auto;
+}
+
 .article {
   height: 100%;
   width: 100%;
