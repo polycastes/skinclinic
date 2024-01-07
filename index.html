@@ -15,5 +15,16 @@
   </head>
   <body>
     test
+
+    <script>
+      // register ServiceWorker, remember to use absolute path!
+      if (navigator.serviceWorker) {
+        navigator.serviceWorker.register("/skinclinic/service-worker.js", {
+          scope: "/skinclinic/",
+        });
+      }
+
+      // --- Application code here ---
+    </script>
   </body>
 </html>
