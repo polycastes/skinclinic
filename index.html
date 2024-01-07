@@ -14,7 +14,7 @@
     <script defer type="module" src="./js/controller.js"></script>
   </head>
   <body>
-    <div class="container">
+    <main class="container container-main flex">
       <header class="header flex">
         <img
           src="./img/logo72.png"
@@ -25,10 +25,33 @@
         <button class="header-menu-button button active">1</button>
         <button class="header-close-button button">2</button>
       </header>
-      <article class="article">
-        <h2>table</h2>
+      <article class="article article-view-all flex">
+        <h2 class="article-h2">View All</h2>
+        <h3 class="article-h3">No medicine uploaded</h3>
+        <!--
+        <table class="article-table">
+          <thead>
+            <tr class="article-table-row">
+              <th class="article-table-data">Medicine</th>
+              <th class="article-table-data">Qty</th>
+              <th class="article-table-data">Price</th>
+              <th class="article-table-data">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="article-table-row">
+              <td class="article-table-data">Testing really long name</td>
+              <td class="article-table-data">3500</td>
+              <td class="article-table-data">200</td>
+              <td class="article-table-data">700000</td>
+            </tr>
+          </tbody>
+        </table>
+        <h4 class="article-h4">Total= 700000</h4>
+
+        -->
       </article>
-    </div>
+    </main>
 
     <script>
       // register ServiceWorker, remember to use absolute path!

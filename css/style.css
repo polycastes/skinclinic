@@ -28,6 +28,7 @@ html {
 }
 
 body {
+  position: absolute;
   font-size: 1.6rem;
   background-color: #ffe5d9;
   width: 100%;
@@ -35,6 +36,92 @@ body {
   overflow: scroll;
 }
 
+.container-main {
+  width: 100%;
+  height: 100%;
+
+  /* flex */
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  background-color: #ffe5d9;
+  height: 8rem;
+  width: 100%;
+  padding: 2rem 1rem;
+  border-bottom: 1px solid #363636;
+
+  /* flex */
+  align-items: center;
+  align-content: center;
+  gap: 1.2rem;
+}
+
+.header-logo {
+  height: 4.8rem;
+}
+
+.h1 {
+  font-size: 4rem;
+  font-weight: 500;
+}
+
+.header-menu-button {
+  display: none;
+  margin-left: auto;
+}
+
+.header-close-button {
+  display: none;
+  margin-left: auto;
+}
+
+.article {
+  height: 100%;
+  width: 100%;
+  padding: 2rem;
+
+  /* flex */
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+}
+
+.article-h2 {
+  font-size: 2.8rem;
+  font-weight: 500;
+}
+
+.article-h3 {
+  font-size: 2.4rem;
+  font-weight: 500;
+}
+
+.article-h4 {
+  font-size: 2.4rem;
+  font-weight: 500;
+
+  align-self: flex-end;
+}
+
+.article-table {
+  width: 100%;
+  border: 1px solid #000000;
+  border-collapse: collapse;
+}
+
+.article-table-data {
+  padding: 0.4rem;
+  font-size: 2rem;
+  border: 1px solid #000000;
+}
+
+/* helpers */
 .container {
   margin: 0 auto;
 }
@@ -53,35 +140,10 @@ body {
   outline: inherit;
 }
 
-.header {
-  height: 10rem;
-  padding: 1rem 2rem;
-  border-bottom: 1px solid #363636;
-
-  /* flex */
-  align-items: center;
-  align-content: center;
-  gap: 2rem;
-}
-
-.header-logo {
-  height: 6rem;
-}
-
-.h1 {
-  font-size: 4rem;
-}
-
-.header-menu-button {
-  display: none;
-  margin-left: auto;
-}
-
-.header-close-button {
-  display: none;
-  margin-left: auto;
-}
-
 .active {
   display: block;
+}
+
+.hidden {
+  display: none;
 }
