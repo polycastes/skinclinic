@@ -33,11 +33,11 @@ body {
   background-color: #ffe5d9;
   width: 100%;
   height: 100%;
-  overflow: scroll;
 }
 
 .container-main {
   width: 100%;
+  /* max-width: 90rem; */
   height: 100%;
 
   /* flex */
@@ -46,7 +46,7 @@ body {
 }
 
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
   background-color: #ffe5d9;
   height: 8rem;
@@ -88,7 +88,9 @@ body {
   background-color: #ece4db;
   padding: 2rem;
   transform: translateX(100%);
-  transition: transform 1s ease-in-out;
+  transition: transform 0.5s ease-out;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .aside-open {
@@ -122,6 +124,9 @@ body {
   height: 100%;
   width: 100%;
   padding: 2rem;
+  margin-top: 8rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
 
   /* flex */
   flex-direction: column;
@@ -155,9 +160,17 @@ body {
 }
 
 .article-table-data {
-  padding: 0.4rem;
+  padding: 0.8rem;
   font-size: 2rem;
   border: 1px solid #000000;
+}
+
+.article-table-data:not(:first-child) {
+  text-align: center;
+}
+
+.article-table-row:nth-child(even) {
+  background-color: #fcd5ce;
 }
 
 /* helpers */

@@ -1,36 +1,14 @@
-// // Register the service worker
-// if ('serviceWorker' in navigator) {
-//   // Wait for the 'load' event to not block other work
-//   window.addEventListener('load', async () => {
-//     // Try to register the service worker.
-//     try {
-//       // Capture the registration for later use, if needed
-//       let reg;
+import * as model from './model.js';
+import view from './View.js';
 
-//       // Use ES Module version of our Service Worker in development
-//       if (import.meta.env?.DEV) {
-//         reg = await navigator.serviceWorker.register(
-//           '/skinclinic/service-worker.js',
-//           {
-//             type: 'module',
-//             scope: '/skinclinic/',
-//           }
-//         );
-//       } else {
-//         // In production, use the normal service worker registration
-//         reg = await navigator.serviceWorker.register(
-//           '/skinclinic/service-worker.js',
-//           {
-//             scope: '/skinclinic/',
-//           }
-//         );
-//       }
+const init = function () {
+  console.log('init');
+  // add event handlers
+  view.addHandlerMenu();
 
-//       console.log('Service worker registered! 😎', reg);
-//     } catch (err) {
-//       console.log('😥 Service worker registration failed: ', err);
-//     }
-//   });
-// } else {
-//   console.log('service worker not supported');
-// }
+  model.getLocalStorage();
+
+  view.displayAll(model.state);
+};
+
+init();
