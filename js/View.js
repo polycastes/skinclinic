@@ -60,7 +60,7 @@ class View {
     let sum = 0;
     let markup = '';
 
-    if (medicines === undefined) {
+    if (medicines === undefined || medicines.length === 0) {
       console.log('medicines === undefined');
       // if no medicines, show message
       markup += `<h3 class="article-h3">No medicine on file</h3>`;
@@ -109,7 +109,7 @@ class View {
     console.log('displayOintments');
     let markup = '';
     // if no ointments. display message.
-    if (ointments === undefined) {
+    if (ointments === undefined || ointments.length === 0) {
       console.log('ointments === undefined');
       markup += `<h3 class="article-h3">No ointment on file</h3>`;
     } else {
