@@ -4,6 +4,7 @@ export const state = {
 };
 
 export const getLocalStorage = function () {
+  console.log('getLocalStorage');
   //check if localStorage is empty
   if (!window.localStorage.length) return;
 

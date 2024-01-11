@@ -56,13 +56,16 @@ class View {
   }
 
   displayMedicines(medicines) {
+    console.log('displayMedicines');
     let sum = 0;
     let markup = '';
 
     if (medicines === undefined) {
+      console.log('medicines === undefined');
       // if no medicines, show message
       markup += `<h3 class="article-h3">No medicine on file</h3>`;
     } else {
+      console.log('medicines !== undefined');
       // if medicines is not empty
       markup += `
       <table class="article-table">
@@ -102,11 +105,14 @@ class View {
   }
 
   displayOintments(ointments) {
+    console.log('displayOintments');
     let markup = '';
     // if no ointments. display message.
     if (ointments === undefined) {
+      console.log('ointments === undefined');
       markup += `<h3 class="article-h3">No ointment on file</h3>`;
     } else {
+      console.log('ointments !== undefined');
       // if ointment is not empty
 
       // ointment table headers
@@ -142,6 +148,7 @@ class View {
   }
 
   displayAll(data) {
+    console.log('displayAll');
     this.displayMedicines(data.medicines);
     this.displayOintments(data.ointments);
   }
