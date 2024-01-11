@@ -111,6 +111,7 @@ body {
 }
 
 .aside-li {
+  padding: 1rem;
   text-decoration: none;
   list-style-type: none;
   font-size: 2rem;

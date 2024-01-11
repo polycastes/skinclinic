@@ -28,20 +28,72 @@
       <aside class="aside">
         <nav class="aside-nav">
           <ul class="aside-ul flex">
-            <li class="aside-li">View All</li>
-            <li class="aside-li">View Medicines</li>
-            <li class="aside-li">View Ointment</li>
-            <li class="aside-li">View Weekly Report</li>
-            <li class="aside-li">Add Stock</li>
-            <li class="aside-li">Sell Medicine</li>
-            <li class="aside-li">Edit Pricing</li>
-            <li class="aside-li">Load Backup</li>
-            <li class="aside-li">Save Backup</li>
+            <li data-button="View All" class="aside-li">View All</li>
+            <li data-button="View Medicines" class="aside-li">
+              View Medicines
+            </li>
+            <li data-button="View Ointments" class="aside-li">
+              View Ointments
+            </li>
+            <li data-button="View Report" class="aside-li">View Report</li>
+            <li data-button="Add Stock" class="aside-li">Add Stock</li>
+            <li data-button="Sell Medicine" class="aside-li">Sell Medicine</li>
+            <li data-button="Edit Pricing" class="aside-li">Edit Pricing</li>
+            <li data-button="Load Backup" class="aside-li">Load Backup</li>
+            <li data-button="Save Backup" class="aside-li">Save Backup</li>
           </ul>
         </nav>
       </aside>
       <article class="article article-view-all flex">
         <h2 class="article-h2">View All</h2>
+        <!-- table template
+        <table class="article-table">
+          <thead>
+            <tr class="article-table-row">
+              <th class="article-table-data">Medicine</th>
+              <th class="article-table-data">Qty</th>
+              <th class="article-table-data">Price</th>
+              <th class="article-table-data">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="article-table-row">
+              <td class="article-table-data">Testing really long name</td>
+              <td class="article-table-data">3500</td>
+              <td class="article-table-data">200</td>
+              <td class="article-table-data">700000</td>
+            </tr>
+          </tbody>
+        </table>
+        <h4 class="article-h4">Total= 700000</h4>
+        -->
+      </article>
+      <article class="article article-view-medicines flex hidden">
+        <h2 class="article-h2">View Medicines</h2>
+        <!-- table template
+        <table class="article-table">
+          <thead>
+            <tr class="article-table-row">
+              <th class="article-table-data">Medicine</th>
+              <th class="article-table-data">Qty</th>
+              <th class="article-table-data">Price</th>
+              <th class="article-table-data">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="article-table-row">
+              <td class="article-table-data">Testing really long name</td>
+              <td class="article-table-data">3500</td>
+              <td class="article-table-data">200</td>
+              <td class="article-table-data">700000</td>
+            </tr>
+          </tbody>
+        </table>
+        <h4 class="article-h4">Total= 700000</h4>
+        -->
+      </article>
+      <article class="article article-view-ointments flex hidden">
+        <h2 class="article-h2">View Ointments</h2>
         <!-- table template
         <table class="article-table">
           <thead>
