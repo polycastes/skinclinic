@@ -66,6 +66,7 @@ class View {
       markup += `<h3 class="article-h3">No medicine on file</h3>`;
     } else {
       console.log('medicines !== undefined');
+      console.log(medicines);
       // if medicines is not empty
       markup += `
       <table class="article-table">
@@ -113,6 +114,7 @@ class View {
       markup += `<h3 class="article-h3">No ointment on file</h3>`;
     } else {
       console.log('ointments !== undefined');
+      console.log(ointments);
       // if ointment is not empty
 
       // ointment table headers
