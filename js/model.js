@@ -50,10 +50,38 @@ export const saveBackup = function () {
   URL.revokeObjectURL(link.href);
 };
 
-export const loadBackup = function () {
+export const loadBackup = async function (files) {
   console.log('load');
+
   // clear local storage and state
+  window.localStorage.clear();
+  state.Medicines = [];
+
   // read file
+  const file = files[0];
+  const blob = new Blob([file], { type: file.type });
+  const data = JSON.parse(await blob.text());
+  console.log(data);
+
   // save data to local storage
+  let medicineStr = '[';
+  data.Medicines.forEach((el, i) => {
+    medicineStr += JSON.stringify(el);
+    if (i < data.Medicines.length - 1) medicineStr += ',';
+  });
+  medicineStr += ']';
+
+  let ointmentStr = '[';
+  data.Ointments.forEach((el, i) => {
+    ointmentStr += JSON.stringify(el);
+    if (i < data.Ointments.length - 1) ointmentStr += ',';
+  });
+  ointmentStr += ']';
+
+  window.localStorage.setItem('Medicines', medicineStr);
+  window.localStorage.setItem('Ointments', ointmentStr);
+
   // add data to state
+  state.Medicines = data.Medicines;
+  state.Ointments = data.Ointments;
 };

@@ -8,6 +8,10 @@ class View {
     document.querySelector('.aside').classList.toggle('aside-open');
   }
 
+  getFile() {
+    return document.querySelector('input[type="file"]').files;
+  }
+
   switchArticle(newPage, currentPage) {
     const curArticle = document.querySelector(`.article-${currentPage}`);
     const newArticle = document.querySelector(`.article-${newPage}`);
@@ -168,11 +172,24 @@ class View {
   }
 
   addHandlerMenuButtons(handler) {
+    document.querySelector('input[type="file"]').addEventListener(
+      'change',
+      function (e) {
+        const btn = e.target.closest('.aside-li');
+        if (!btn) return;
+
+        handler(btn.dataset.button);
+
+        if (btn.querySelector('input[type="file"'))
+          document.querySelector('input[type="file"').value = '';
+      }.bind(this)
+    );
     document.querySelector('.aside').addEventListener(
       'click',
       function (e) {
         const btn = e.target.closest('.aside-li');
         if (!btn) return;
+        if (btn.dataset.button === 'load') return;
 
         handler(btn.dataset.button);
       }.bind(this)

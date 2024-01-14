@@ -1,7 +1,7 @@
 import * as model from './model.js';
 import view from './View.js';
 
-const openPanel = function (btn) {
+const openPanel = async function (btn) {
   switch (btn) {
     case 'View All':
       // open view all article
@@ -40,12 +40,19 @@ const openPanel = function (btn) {
       break;
     case 'Sell Medicine':
       break;
-    case 'Add Stick':
+    case 'Add Stock':
       break;
     case 'Sell Medicine':
       break;
     case 'Load Backup':
-      model.loadBackup();
+      const files = view.getFile();
+      await model.loadBackup(files);
+
+      //display main page (view all)
+      view.displayAll(model.state);
+
+      // close menu
+      view.toggleMenu();
       break;
     case 'Save Backup':
       model.saveBackup();
