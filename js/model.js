@@ -1,6 +1,8 @@
+import * as util from './util.js';
+
 export const state = {
-  medicines: [],
-  ointments: [],
+  Medicines: [],
+  Ointments: [],
   currentPage: 'view-all',
 };
 
@@ -17,8 +19,41 @@ export const getLocalStorage = function () {
     parseOint = JSON.parse(window.localStorage.Ointments);
 
   // assign parsed data to state
-  state.medicines = parseMeds;
-  state.ointments = parseOint;
+  state.Medicines = parseMeds;
+  state.Ointments = parseOint;
 
   return state;
+};
+
+export const saveBackup = function () {
+  // get required data from state
+  const data = {
+    Medicines: state.Medicines,
+    Ointments: state.Ointments,
+  };
+
+  // make file
+  const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
+  const date = new Date();
+  const filename = `inventory backup ${util.formatTwoDigits(
+    date.getMonth() + 1
+  )}-${util.formatTwoDigits(date.getDate())}-${date.getFullYear()}.json`;
+  const file = new File([blob], filename, { type: blob.type });
+
+  // create link to download file
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(file);
+  link.download = filename;
+  link.click();
+
+  // clean memory
+  URL.revokeObjectURL(link.href);
+};
+
+export const loadBackup = function () {
+  console.log('load');
+  // clear local storage and state
+  // read file
+  // save data to local storage
+  // add data to state
 };

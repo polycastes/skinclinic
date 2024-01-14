@@ -2,7 +2,6 @@ import * as model from './model.js';
 import view from './View.js';
 
 const openPanel = function (btn) {
-  console.log(model.state.currentPage);
   switch (btn) {
     case 'View All':
       // open view all article
@@ -21,7 +20,7 @@ const openPanel = function (btn) {
       model.state.currentPage = 'view-medicines';
 
       // display tables
-      view.displayMedicines(model.state.medicines, model.state.currentPage);
+      view.displayMedicines(model.state.Medicines, model.state.currentPage);
 
       // close menu
       view.toggleMenu();
@@ -32,7 +31,7 @@ const openPanel = function (btn) {
       model.state.currentPage = 'view-ointments';
 
       // display tables
-      view.displayOintments(model.state.ointments, model.state.currentPage);
+      view.displayOintments(model.state.Ointments, model.state.currentPage);
 
       // close menu
       view.toggleMenu();
@@ -46,8 +45,10 @@ const openPanel = function (btn) {
     case 'Sell Medicine':
       break;
     case 'Load Backup':
+      model.loadBackup();
       break;
     case 'Save Backup':
+      model.saveBackup();
       break;
   }
 };

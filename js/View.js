@@ -1,3 +1,5 @@
+import * as util from './util.js';
+
 class View {
   toggleMenu() {
     document.querySelector('.header-menu-button').classList.toggle('active');
@@ -6,24 +8,9 @@ class View {
     document.querySelector('.aside').classList.toggle('aside-open');
   }
 
-  formatCurrency(price) {
-    return new Intl.NumberFormat('en-PH', {
-      style: 'currency',
-      currency: 'PHP',
-    }).format(price);
-  }
-
-  formatNumbers(amount) {
-    return new Intl.NumberFormat('en-PH', {
-      minimumFractionDigits: 0,
-    }).format(amount);
-  }
-
   switchArticle(newPage, currentPage) {
     const curArticle = document.querySelector(`.article-${currentPage}`);
     const newArticle = document.querySelector(`.article-${newPage}`);
-    console.log(curArticle);
-    console.log(newArticle);
 
     if (curArticle !== newArticle) {
       curArticle.classList.add('hidden');
@@ -66,11 +53,11 @@ class View {
         markup += `
         <tr class="article-table-row">
           <td class="article-table-data">${el.name}</td>
-          <td class="article-table-data">${this.formatNumbers(el.quantity)}</td>
-          <td class="article-table-data">${this.formatNumbers(
+          <td class="article-table-data">${util.formatNumbers(el.quantity)}</td>
+          <td class="article-table-data">${util.formatNumbers(
             el.sellingPrice
           )}</td>
-          <td class="article-table-data">${this.formatNumbers(el.total)}</td>
+          <td class="article-table-data">${util.formatNumbers(el.total)}</td>
         </tr>`;
         sum += el.total;
       });
@@ -79,10 +66,9 @@ class View {
       markup += `
         </tbody>
       </table>
-      <h4 class="article-h4">Total = ${this.formatCurrency(sum)}</h4>`;
+      <h4 class="article-h4">Total = ${util.formatCurrency(sum)}</h4>`;
     }
 
-    console.log(document.querySelector(`.article-${curPage}`));
     // insert table to html
     document
       .querySelector(`.article-${curPage}`)
@@ -119,7 +105,9 @@ class View {
         markup += `
         <tr class="article-table-row">
           <td class="article-table-data">${el.name}</td>
-          <td class="article-table-data">${el.amount} ${el.unit}</td>
+          <td class="article-table-data">${el.less ? 'Less' : ''} ${
+          el.amount
+        } ${el.unit}</td>
         </tr>`;
       });
 
@@ -138,8 +126,8 @@ class View {
   displayAll(data) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    this.displayMedicines(data.medicines, data.currentPage);
-    this.displayOintments(data.ointments, data.currentPage);
+    this.displayMedicines(data.Medicines, data.currentPage);
+    this.displayOintments(data.Ointments, data.currentPage);
   }
 
   // event handlers
@@ -186,7 +174,6 @@ class View {
         const btn = e.target.closest('.aside-li');
         if (!btn) return;
 
-        console.log(btn.dataset.button);
         handler(btn.dataset.button);
       }.bind(this)
     );
