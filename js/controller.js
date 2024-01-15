@@ -41,6 +41,7 @@ const openPanel = async function (btn) {
     case 'Sell Medicine':
       break;
     case 'Add Stock':
+      view.openModal('add-stock', model.state.Medicines);
       break;
     case 'Sell Medicine':
       break;
@@ -61,7 +62,6 @@ const openPanel = async function (btn) {
 };
 
 const init = function () {
-  console.log('init');
   // add event handlers
   view.addHandlerMenu();
   view.addHandlerMenuButtons(openPanel);

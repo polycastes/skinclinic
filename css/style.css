@@ -26,6 +26,9 @@ https://coolors.co/fec5bb-fcd5ce-fae1dd-f8edeb-e8e8e4-d8e2dc-ece4db-ffe5d9-ffd7b
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+
+  /* prevent double tap to zoom */
+  touch-action: manipulation;
 }
 
 html {
@@ -35,10 +38,11 @@ html {
 }
 
 body {
-  position: absolute;
+  position: relative;
   font-size: 1.6rem;
   background-color: var(--theme-color);
   width: 100%;
+  max-width: 100rem;
   height: 100%;
 }
 
@@ -113,7 +117,7 @@ body {
 
   /* flex */
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.6rem;
   align-items: flex-start;
 }
 
@@ -122,6 +126,16 @@ body {
   text-decoration: none;
   list-style-type: none;
   font-size: 2rem;
+
+  cursor: pointer;
+}
+
+.aside-li label {
+  cursor: pointer;
+}
+
+.aside-li label input[type='file'] {
+  display: none;
 }
 
 .aside-li:nth-last-child(2) {
@@ -181,6 +195,10 @@ body {
   background-color: var(--theme-tint-color);
 }
 
+.article-table-low-stock {
+  color: red;
+}
+
 /* helpers */
 .container {
   margin: 0 auto;
@@ -188,6 +206,10 @@ body {
 
 .flex {
   display: flex;
+}
+
+.grid {
+  display: grid;
 }
 
 .button {
@@ -198,6 +220,34 @@ body {
   font: inherit;
   cursor: pointer;
   outline: inherit;
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(58, 58, 58, 0.9);
+  width: 100vw;
+  height: 100%;
+  z-index: 5;
+
+  /* flex */
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+.container-add-stock {
+  position: relative;
+  background-color: var(--theme-color);
+  width: 80%;
+  padding: 2rem;
+
+  /* grid */
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 1.6rem;
+  align-items: center;
 }
 
 .active {

@@ -19,8 +19,32 @@ class View {
     if (curArticle !== newArticle) {
       curArticle.classList.add('hidden');
       newArticle.classList.remove('hidden');
-      console.log('switched');
     }
+  }
+
+  closeModal(curModal) {
+    document.querySelector(`.modal-${curModal}`).classList.add('hidden');
+  }
+
+  openModal(modalPage, data) {
+    const modal = `.modal-${modalPage}`;
+
+    // open modal
+    document.querySelector(modal).classList.remove('hidden');
+
+    // clear existing options if any
+    document.querySelector('#input-add-stock-name').innerHTML = '';
+
+    // create markup for medicine list
+    let markup = '<option>Choose stock to add</option>';
+    data.forEach((el, i) => {
+      markup += `<option value='${i}'>${el.name}</option>`;
+    });
+
+    // insert markup to html
+    document
+      .querySelector('#input-add-stock-name')
+      .insertAdjacentHTML('beforeend', markup);
   }
 
   displayMedicines(medicines, curPage) {
@@ -55,7 +79,9 @@ class View {
       // loop every item of medicines
       medicines.forEach((el) => {
         markup += `
-        <tr class="article-table-row">
+        <tr class="article-table-row ${
+          el.quantity === 0 ? 'article-table-low-stock' : ''
+        }">
           <td class="article-table-data">${el.name}</td>
           <td class="article-table-data">${util.formatNumbers(el.quantity)}</td>
           <td class="article-table-data">${util.formatNumbers(
@@ -107,7 +133,9 @@ class View {
       // loop every ointment element
       ointments.forEach((el) => {
         markup += `
-        <tr class="article-table-row">
+        <tr class="article-table-row ${
+          el.amount <= 0.5 && el.less ? 'article-table-low-stock' : ''
+        }">
           <td class="article-table-data">${el.name}</td>
           <td class="article-table-data">${el.less ? 'Less' : ''} ${
           el.amount
@@ -189,7 +217,7 @@ class View {
       function (e) {
         const btn = e.target.closest('.aside-li');
         if (!btn) return;
-        if (btn.dataset.button === 'load') return;
+        if (btn.dataset.button === 'Load Backup') return;
 
         handler(btn.dataset.button);
       }.bind(this)

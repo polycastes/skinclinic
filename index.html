@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <meta name="theme-color" content="#ffe5d9" />
     <title>Dr. Evangeline B. Handog Inventory</title>
 
@@ -40,10 +43,7 @@
             <li data-button="Sell Medicine" class="aside-li">Sell Medicine</li>
             <li data-button="Edit Pricing" class="aside-li">Edit Pricing</li>
             <li data-button="Load Backup" class="aside-li">
-              <label
-                ><input type="file" style="display: none" accept=".json" />Load
-                Backup</label
-              >
+              <label><input type="file" accept=".json" />Load Backup</label>
             </li>
             <li data-button="Save Backup" class="aside-li">Save Backup</li>
           </ul>
@@ -80,6 +80,17 @@
         <h2 class="article-h2">View Ointments</h2>
       </article>
     </main>
+    <section class="modal modal-add-stock flex hidden">
+      <article class="container container-add-stock grid">
+        <h2 class="article-h2">Add Stock</h2>
+        <button class="modal-close-button button">2</button>
+        <label for="input-add-stock-name">Name:</label>
+        <select id="input-add-stock-name"></select>
+        <label for="input-add-stock-quantity">Quantity:</label>
+        <input type="number" placeholder="Enter amount" />
+        <button class="modal-add-button button">Add</button>
+      </article>
+    </section>
 
     <!--
       service worker script

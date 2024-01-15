@@ -4,6 +4,7 @@ export const state = {
   Medicines: [],
   Ointments: [],
   currentPage: 'view-all',
+  currentModal: '',
 };
 
 export const getLocalStorage = function () {
