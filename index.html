@@ -9,6 +9,7 @@
     <meta name="theme-color" content="#ffe5d9" />
     <title>Dr. Evangeline B. Handog Inventory</title>
 
+    <link rel="shortcut icon" type="image/jpg" href="./img/favicon.ico" />
     <link rel="canonical" href="https://polycastes.github.io/skinclinic/" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="manifest" href="./manifest.json" />
@@ -17,80 +18,304 @@
     <script defer type="module" src="./js/controller.js"></script>
   </head>
   <body>
-    <main class="container container-main flex">
-      <header class="header flex">
-        <img
-          src="./img/logo72.png"
-          alt="logo of Skin Clinic"
-          class="header-logo"
-        />
-        <h1 class="h1">Skin Clinic</h1>
-        <button class="header-menu-button button active">1</button>
-        <button class="header-close-button button">2</button>
+    <main class="main container flex">
+      <header class="header container flex">
+        <h1 class="header-h1">Asian Hospital</h1>
+        <button class="button button-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </header>
-      <aside class="aside">
-        <nav class="aside-nav">
-          <ul class="aside-ul flex">
-            <li data-button="View All" class="aside-li">View All</li>
-            <li data-button="View Medicines" class="aside-li">
-              View Medicines
-            </li>
-            <li data-button="View Ointments" class="aside-li">
-              View Ointments
-            </li>
-            <li data-button="View Report" class="aside-li">View Report</li>
-            <li data-button="Add Stock" class="aside-li">Add Stock</li>
-            <li data-button="Sell Medicine" class="aside-li">Sell Medicine</li>
-            <li data-button="Edit Pricing" class="aside-li">Edit Pricing</li>
-            <li data-button="Load Backup" class="aside-li">
-              <label><input type="file" accept=".json" />Load Backup</label>
-            </li>
-            <li data-button="Save Backup" class="aside-li">Save Backup</li>
-          </ul>
-        </nav>
-      </aside>
-      <article class="article article-view-all flex">
-        <h2 class="article-h2">View All</h2>
-      </article>
-      <article class="article article-view-medicines flex hidden">
-        <h2 class="article-h2">View Medicines</h2>
-        <!-- table template
-        <table class="article-table">
+      <section class="section section-view-all flex current">
+        <h2 class="section-h2">View all</h2>
+        <!-- table template -->
+        <table class="section-table">
           <thead>
-            <tr class="article-table-row">
-              <th class="article-table-data">Medicine</th>
-              <th class="article-table-data">Qty</th>
-              <th class="article-table-data">Price</th>
-              <th class="article-table-data">Total</th>
+            <tr class="section-table-row">
+              <th class="section-table-data">Medicine</th>
+              <th class="section-table-data">Qty.</th>
+              <th class="section-table-data">Price</th>
+              <th class="section-table-data">Total</th>
             </tr>
           </thead>
           <tbody>
-            <tr class="article-table-row">
-              <td class="article-table-data">Testing really long name</td>
-              <td class="article-table-data">3500</td>
-              <td class="article-table-data">200</td>
-              <td class="article-table-data">700000</td>
+            <tr class="section-table-row">
+              <td class="section-table-data">Testing really long name</td>
+              <td class="section-table-data">3,500</td>
+              <td class="section-table-data">200</td>
+              <td class="section-table-data">700,000</td>
+            </tr>
+            <tr class="section-table-row">
+              <td class="section-table-data">Testing really long name 2</td>
+              <td class="section-table-data">32</td>
+              <td class="section-table-data">20</td>
+              <td class="section-table-data">640</td>
+            </tr>
+            <tr class="section-table-row section-table-row-low-stock">
+              <td class="section-table-data">Test</td>
+              <td class="section-table-data">1</td>
+              <td class="section-table-data">20</td>
+              <td class="section-table-data">20</td>
             </tr>
           </tbody>
         </table>
-        <h4 class="article-h4">Total= 700000</h4>
-        -->
-      </article>
-      <article class="article article-view-ointments flex hidden">
-        <h2 class="article-h2">View Ointments</h2>
-      </article>
-    </main>
-    <section class="modal modal-add-stock flex hidden">
-      <article class="container container-add-stock grid">
-        <h2 class="article-h2">Add Stock</h2>
-        <button class="modal-close-button button">2</button>
-        <label for="input-add-stock-name">Name:</label>
-        <select id="input-add-stock-name"></select>
+        <h3 class="section-h3">Total = 700,660</h3>
+        <table class="section-table">
+          <thead>
+            <tr class="section-table-row">
+              <th class="section-table-data">Ointments</th>
+              <th class="section-table-data">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="section-table-row section-table-row-low-stock">
+              <td class="section-table-data">Testing really long name</td>
+              <td class="section-table-data">Less 0.5 kilo</td>
+            </tr>
+            <tr class="section-table-row">
+              <td class="section-table-data">Testing really long name 2</td>
+              <td class="section-table-data">1 liter</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="section section-view-medicine flex hidden">
+        <h2>View Medicine</h2>
+        <table class="section-table">
+          <thead>
+            <tr class="section-table-row">
+              <th class="section-table-data">Medicine</th>
+              <th class="section-table-data">Qty.</th>
+              <th class="section-table-data">Price</th>
+              <th class="section-table-data">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="section-table-row">
+              <td class="section-table-data">Testing really long name</td>
+              <td class="section-table-data">3,500</td>
+              <td class="section-table-data">200</td>
+              <td class="section-table-data">700,000</td>
+            </tr>
+            <tr class="section-table-row">
+              <td class="section-table-data">Testing really long name 2</td>
+              <td class="section-table-data">32</td>
+              <td class="section-table-data">20</td>
+              <td class="section-table-data">640</td>
+            </tr>
+            <tr class="section-table-row section-table-row-low-stock">
+              <td class="section-table-data">Test</td>
+              <td class="section-table-data">1</td>
+              <td class="section-table-data">20</td>
+              <td class="section-table-data">20</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 class="section-h3">Total = 700,660</h3>
+      </section>
+      <section class="section section-view-ointment flex hidden">
+        <h2>View Ointments/Creams</h2>
+        <table class="section-table">
+          <thead>
+            <tr class="section-table-row">
+              <th class="section-table-data">Ointments</th>
+              <th class="section-table-data">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="section-table-row section-table-row-low-stock">
+              <td class="section-table-data">Testing really long name</td>
+              <td class="section-table-data">Less 0.5 kilo</td>
+            </tr>
+            <tr class="section-table-row">
+              <td class="section-table-data">Testing really long name 2</td>
+              <td class="section-table-data">1 liter</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="section section-weekly-report flex hidden">
+        <h2>Weekly Report</h2>
+        <table class="section-table">
+          <thead>
+            <tr class="section-table-row">
+              <th class="section-table-data">Medicine Sold</th>
+              <th class="section-table-data">Quantity</th>
+              <th class="section-table-data">Unit Price</th>
+              <th class="section-table-data">Selling Price</th>
+              <th class="section-table-data">Total</th>
+              <th class="section-table-data">Profit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="section-table-row">
+              <td class="section-table-data">Testing really long name 2</td>
+              <td class="section-table-data">1</td>
+              <td class="section-table-data">10</td>
+              <td class="section-table-data">12</td>
+              <td class="section-table-data">12</td>
+              <td class="section-table-data">2</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="section section-add-stock flex hidden">
+        <h2>Add Stock</h2>
+        <select class="select-add-stock-name">
+          <option value="">Choose medicine:</option>
+        </select>
+        <label for="input-add-stock-quantity-current">Current Stock:</label>
+        <input
+          type="number"
+          id="input-add-stock-quantity-current"
+          placeholder="0"
+          readonly
+        />
         <label for="input-add-stock-quantity">Quantity:</label>
-        <input type="number" placeholder="Enter amount" />
-        <button class="modal-add-button button">Add</button>
-      </article>
-    </section>
+        <input type="number" id="input-add-stock-quantity" placeholder="0" />
+        <label for="input-add-stock-total">Total</label>
+        <input
+          type="number"
+          id="input-add-stock-total"
+          placeholder="0"
+          readonly
+        />
+        <button class="button-add-stock button">Add</button>
+      </section>
+      <section class="section section-edit-price flex hidden">
+        <h2>Edit Price</h2>
+        <select class="select-edit-price-name">
+          <option value="">Choose medicine:</option>
+        </select>
+        <label for="input-edit-price-unitPrice-current"
+          >Current Unit Price</label
+        >
+        <input
+          type="number"
+          id="input-edit-price-unitPrice-current"
+          value="0"
+          readonly
+        />
+        <label for="input-edit-price-unitPrice-new">New Unit Price</label>
+        <input
+          type="number"
+          id="input-edit-price-unitPrice-new"
+          placeholder="0"
+        />
+        <label for="input-edit-price-sellingPrice-current"
+          >Current Selling Price</label
+        >
+        <input
+          type="number"
+          id="input-edit-price-sellingPrice-current"
+          value="0"
+          readonly
+        />
+        <label for="input-edit-price-sellingPrice-new">New Selling Price</label>
+        <input
+          type="number"
+          id="input-edit-price-sellingPrice-new"
+          placeholder="0"
+        />
+        <button class="button-edit-price button">Edit</button>
+      </section>
+      <section class="section section-sell-medicine flex hidden">
+        <h2>Sell Medicine</h2>
+        <select class="select-sell-medicine-name">
+          <option value="">Choose medicine:</option>
+        </select>
+        <label for="input-sell-medicine-stock-left">Stocks Left</label>
+        <input
+          type="number"
+          id="input-sell-medicine-stock-left"
+          placeholder="0"
+          readonly
+        />
+        <label for="input-sell-medicine-quantity">Quantity</label>
+        <input
+          type="number"
+          id="input-sell-medicine-quantity"
+          placeholder="0"
+        />
+        <label for="input-sell-medicine-sellingPrice">Price</label>
+        <input
+          type="number"
+          id="input-sell-medicine-sellingPrice"
+          placeholder="0"
+          readonly
+        />
+        <label for="input-sell-medicine-total">Total</label>
+        <input
+          type="number"
+          id="input-sell-medicine-total"
+          value="0"
+          readonly
+        />
+        <button class="button-sell-medicine button">Confirm</button>
+      </section>
+      <section class="section section-new-medicine flex hidden">
+        <h2>New Medicine</h2>
+        <label for="input-new-medicine-name">Name:</label>
+        <input
+          type="text"
+          id="input-new-medicine-name"
+          placeholder="Enter name of new medicine"
+        />
+        <label for="input-new-medicine-unitPrice">Unit Price</label>
+        <input
+          type="number"
+          id="input-new-medicine-unitPrice"
+          placeholder="0"
+        />
+        <label for="input-new-medicine-quantity">Quantity</label>
+        <input type="number" id="input-new-medicine-quantity" placeholder="0" />
+        <label for="input-new-medicine-sellingPrice">Selling Price</label>
+        <input
+          type="number"
+          id="input-new-medicine-sellingPrice"
+          placeholder="0"
+        />
+        <label for="input-new-medicine-total">Total</label>
+        <input type="number" id="input-new-medicine-total" value="0" readonly />
+        <button class="button-new-medicine button">Add New</button>
+      </section>
+      <section class="section section-delete-medicine flex hidden">
+        <h2>Delete Medicine</h2>
+        <select class="select-delete-medicine-name">
+          <option value="">Choose medicine:</option>
+        </select>
+        <button class="button-delete-medicine button">Delete</button>
+      </section>
+      <aside class="aside hidden">
+        <nav class="aside-nav">
+          <ul class="aside-ul flex">
+            <li data-button="view-all" class="button">View all</li>
+            <li data-button="view-medicine" class="button">View Medicines</li>
+            <li data-button="view-ointment" class="button">View Ointments</li>
+            <li data-button="weekly-report" class="button">Weekly Report</li>
+            <li data-button="add-stock" class="button">Add Stock</li>
+            <li data-button="edit-price" class="button">Edit Price</li>
+            <li data-button="sell-medicine" class="button">Sell Medicnie</li>
+            <li data-button="new-medicine" class="button">New Medicine</li>
+            <li data-button="delete-medicine" class="button">
+              Delete Medicine
+            </li>
+            <li data-button="load-backup" class="button">
+              <label class="label-load-backup">
+                <input
+                  type="file"
+                  class="input-load-backup-file"
+                  accept=".json"
+                />Load Backup</label
+              >
+            </li>
+            <li data-button="save-backup" class="button">Save Backup</li>
+          </ul>
+        </nav>
+      </aside>
+    </main>
 
     <!--
       service worker script

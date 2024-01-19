@@ -1,4 +1,4 @@
 *.psd
 *.ai
 .prettierrc
-inventory.json
+inventory*.json

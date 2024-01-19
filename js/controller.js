@@ -1,76 +1,94 @@
 import * as model from './model.js';
 import view from './View.js';
 
-const openPanel = async function (btn) {
-  switch (btn) {
-    case 'View All':
-      // open view all article
-      view.switchArticle('view-all', model.state.currentPage);
-      model.state.currentPage = 'view-all';
+const refreshAll = function () {
+  view.renderViewAll(model.state);
+  view.renderViewMedicine(model.state);
+  view.renderViewOintment(model.state);
+  view.renderWeeklyReport(model.state);
+  view.renderAddStock(model.state);
+  view.renderEditPrice(model.state);
+  view.renderSellMedicine(model.state);
+  view.renderDeleteMedicine(model.state);
+};
 
-      // display tables
-      view.displayAll(model.state);
-
-      // close menu
-      view.toggleMenu();
+const action = function (name, data) {
+  switch (name) {
+    case 'add-stock':
+      model.addStock(data);
+      view.resetAddStock();
+      model.saveState(data);
       break;
-    case 'View Medicines':
-      // open view medicines article
-      view.switchArticle('view-medicines', model.state.currentPage);
-      model.state.currentPage = 'view-medicines';
-
-      // display tables
-      view.displayMedicines(model.state.Medicines, model.state.currentPage);
-
-      // close menu
-      view.toggleMenu();
+    case 'edit-price':
+      model.editPrice(data);
+      view.resetAddStock();
       break;
-    case 'View Ointments':
-      // open view ointments article
-      view.switchArticle('view-ointments', model.state.currentPage);
-      model.state.currentPage = 'view-ointments';
-
-      // display tables
-      view.displayOintments(model.state.Ointments, model.state.currentPage);
-
-      // close menu
-      view.toggleMenu();
+    case 'sell-medicine':
+      model.sellMedicine(data);
+      view.resetSellMedicine();
       break;
-    case 'View Report':
+    case 'new-medicine':
+      model.newMedicine(data);
+      view.resetNewMedicine();
       break;
-    case 'Sell Medicine':
-      break;
-    case 'Add Stock':
-      view.openModal('add-stock', model.state.Medicines);
-      break;
-    case 'Sell Medicine':
-      break;
-    case 'Load Backup':
-      const files = view.getFile();
-      await model.loadBackup(files);
-
-      //display main page (view all)
-      view.displayAll(model.state);
-
-      // close menu
-      view.toggleMenu();
-      break;
-    case 'Save Backup':
-      model.saveBackup();
+    case 'delete-medicine':
+      model.deleteMedicine(data);
+      view.resetDeleteMedicine();
       break;
   }
+
+  // refresh/update tables and computations
+  refreshAll();
+
+  // go back to home page (view-all)
+  view.showViewAll();
+
+  // save new modified state to localStorage
+  model.saveState();
 };
 
-const init = function () {
-  // add event handlers
-  view.addHandlerMenu();
-  view.addHandlerMenuButtons(openPanel);
+const saveBackup = function (type) {
+  if (type === 'save-backup') {
+    model.saveBackup();
+  }
 
-  // get localStorage data and save to state
-  model.getLocalStorage();
-
-  //display main page (view all)
-  view.displayAll(model.state);
+  // if (type === 'load-backup') {
+  //   console.log('loading backup');
+  //   model.loadBackup();
+  // }
 };
 
+const loadBackup = async function (files) {
+  await model.loadBackup(files[0]);
+
+  view.resetFile();
+
+  // refresh/update tables and computations
+  refreshAll();
+
+  // go back to home page (view-all)
+  view.showViewAll();
+};
+
+const init = async function () {
+  //load test data
+  // model.loadTestData();
+
+  // clear test data
+  // window.localStorage.clear();
+
+  //load data from local storage and push to model.state if it exists
+  model.loadLocalStorage();
+
+  // display view all & render all pages
+  refreshAll();
+
+  // initialize event handlers
+  view.addHandlerToggleMenu();
+  view.addHandlerMenuButtons(saveBackup);
+  view.addHandlerFileChange(loadBackup);
+  view.addHandlerSectionButtons(action);
+  view.addHandlerSectionLoadData(model.state);
+  view.addHandlerSectionInput(model.state);
+};
 init();
