@@ -418,10 +418,10 @@ class View {
       markup += `
     </tbody>
   </table>
-  <h3 class="section-h3">Weekly Medicine Total = ${util.formatCurrency(
+  <h3 class="section-h3">Total Earned = ${util.formatCurrency(
     medicineTotal
   )}</h3>
-  <h3 class="section-h3">Weekly Profit Total = ${util.formatCurrency(
+  <h3 class="section-h3">Total Profit = ${util.formatCurrency(
     profitTotal
   )}</h3>`;
     }
