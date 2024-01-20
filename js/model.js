@@ -143,7 +143,6 @@ export const sellMedicine = function (data) {
     quantity: data.quantity,
     dateSold: Date.now(),
   });
-  console.log(state);
 };
 
 export const newMedicine = function (data) {
