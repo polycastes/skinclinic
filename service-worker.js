@@ -20,6 +20,7 @@ const precacheResources = [
   './img/logo256.png',
   './img/logo384.png',
   './img/logo512.png',
+  './img/maskable.png',
   './img/favicon.ico',
 ];
 
