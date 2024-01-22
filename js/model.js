@@ -120,7 +120,8 @@ export const addStock = function (data) {
 };
 
 export const editPrice = function (data) {
-  state.Medicines[data.index].sellingPrice = data.newPrice;
+  state.Medicines[data.index].unitPrice = data.newUnitPrice;
+  state.Medicines[data.index].sellingPrice = data.newSellingPrice;
   state.Medicines[data.index].total =
     state.Medicines[data.index].quantity *
     state.Medicines[data.index].sellingPrice;

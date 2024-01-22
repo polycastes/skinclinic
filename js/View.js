@@ -111,8 +111,11 @@ class View {
         n = 'edit-price';
         data = {
           index: document.querySelector('.select-edit-price-name').value,
-          newPrice: Number(
-            document.querySelector('#input-edit-price-new').value
+          newUnitPrice: Number(
+            document.querySelector('#input-edit-price-unitPrice-new').value
+          ),
+          newSellingPrice: Number(
+            document.querySelector('#input-edit-price-sellingPrice-new').value
           ),
         };
         handler(n, data);
@@ -212,7 +215,8 @@ class View {
             document.querySelector('#input-add-stock-quantity-current').value
           );
         break;
-      case 'input-edit-price-new':
+      case 'input-edit-price-unitPrice-new':
+      case 'input-edit-price-sellingPrice-new':
         break;
       case 'input-sell-medicine-quantity':
         // get sellingPrice from data

@@ -17,7 +17,7 @@ const action = function (name, data) {
     case 'add-stock':
       model.addStock(data);
       view.resetAddStock();
-      model.saveState(data);
+      model.saveState();
       break;
     case 'edit-price':
       model.editPrice(data);
